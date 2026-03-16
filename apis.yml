@@ -38,7 +38,7 @@ description: >-
   an unmatched driving experience to their customers.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
   - name: Porsche Developer Portal
