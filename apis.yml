@@ -16,9 +16,9 @@ apis:
       seamless integration.
 name: Porsche
 tags:
-  - Vehicles
-  - Cars
   - Automobiles
+  - Cars
+  - Vehicles
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
