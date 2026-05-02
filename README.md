@@ -43,5 +43,5 @@ Welcome to the Porsche API Portal ... Discover, access, and manage Porsches APIs
 
 **FN:** Kin Lane
 
-**Email:** info@apievangelist.com
+**Email:** kin@apievangelist.com
 
