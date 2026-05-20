@@ -36,6 +36,10 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: GitHubOrganization
+    url: https://github.com/porscheofficial
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/porsche-ag
   - name: Porsche Developer Portal
     description: 'null'
     url: https://developer.porsche.com/
