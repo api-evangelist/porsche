@@ -36,6 +36,10 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: VulnerabilityDisclosure
+    url: security/porsche-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/porsche-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/porscheofficial
   - type: LinkedIn
