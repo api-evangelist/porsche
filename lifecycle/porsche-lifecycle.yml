@@ -1,0 +1,89 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/porsche-design-system/porsche-design-system/blob/main/SECURITY.md
+provider: Porsche
+providerId: porsche
+description: >-
+  Lifecycle posture for the Porsche developer surface. Porsche publishes a real, written
+  version-support and end-of-life policy — but only for the Porsche Design System. The
+  partner-gated API surfaces (Porsche ID APIs, Porsche Developer Hub) publish no
+  anonymously readable versioning, deprecation, sunset or SLA policy, and no status page
+  exists on any Porsche host we could reach.
+versioning:
+  scheme: semver
+  applies_to: Porsche Design System
+  current_major: '4'
+  current_version: 4.6.0
+  documentation_per_major: true
+  documentation_note: >-
+    Each major gets its own storefront tree (designsystem.porsche.com/v3/, /v4/). The bare
+    hostname meta-refreshes to the current major.
+  api_versioning: unknown
+  api_versioning_note: >-
+    No public API means no observable API version scheme. The Developer Hub proxies an
+    internal service whose paths are prefixed /v1/ (leaked by an Express 404 body), which
+    suggests URI-path versioning, but this is inference from an error message, not a
+    published policy.
+deprecation_policy:
+  published: true
+  url: https://github.com/porsche-design-system/porsche-design-system/blob/main/SECURITY.md
+  scope: Porsche Design System npm packages and storefront
+  last_updated: '2026-04-30'
+  supported_versions:
+    - version: 4.x
+      status: active
+      security_fixes: true
+    - version: '< 4.0'
+      status: end-of-life
+      security_fixes: false
+  migration_guides: https://designsystem.porsche.com/v4/start/migration-guides
+  sunset_headers: not documented
+  rfc8594_deprecation_header: not documented
+  note: >-
+    This is a genuine written EOL policy with a named cut line, not a marketing statement.
+    It does not cover any Porsche API — only the design system.
+sla:
+  published: true
+  scope: security response only
+  url: https://github.com/porsche-design-system/porsche-design-system/blob/main/SECURITY.md
+  targets:
+    - stage: Acknowledgement of report
+      target: within 5 business days
+    - stage: Initial assessment and triage
+      target: within 10 business days
+    - stage: Fix for critical severity
+      target: within 30 days
+    - stage: Fix for high severity
+      target: within 60 days
+    - stage: Coordinated public disclosure
+      target: after a fix is released and consumers have had reasonable time to update
+  availability_sla: not published
+  availability_sla_note: >-
+    No uptime or latency commitment is published anywhere public. Any API SLA would sit in
+    the partner contract behind the VW Group Supply Portal onboarding.
+status_page:
+  published: false
+  probes:
+    - url: https://status.porsche.com/
+      status: 000
+      note: DNS does not resolve.
+  note: >-
+    No status page found on any Porsche host. Deliberately NOT wired as type StatusPage —
+    a pointer would assert a surface Porsche does not serve.
+supply_chain:
+  npm_provenance: true
+  note: >-
+    Published @porsche-design-system/* packages carry npm provenance attestations generated
+    by the repository's GitHub Actions release workflow; verifiable with `npm audit signatures`.
+deprecated_operations: []
+deprecated_operations_note: No OpenAPI document exists, so no operation-level deprecation could be derived.
+evidence:
+  - url: https://raw.githubusercontent.com/porsche-design-system/porsche-design-system/main/SECURITY.md
+    status: 200
+  - url: https://designsystem.porsche.com/v4/news/changelog
+    status: 200
+  - url: https://status.porsche.com/
+    status: 000
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

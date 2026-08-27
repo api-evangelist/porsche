@@ -1,0 +1,168 @@
+generated: '2026-08-27'
+method: searched
+source: https://registry.npmjs.org
+provider: Porsche
+providerId: porsche
+description: >-
+  First-party packages published by Porsche AG and its subsidiaries. Porsche ships no API
+  client SDK, because it publishes no public API — every package below is a front-end
+  library (the Porsche Design System web components and their framework wrappers, and the
+  Porsche Digital open-source tooling), not a wrapper around a Porsche HTTP API. Versions
+  and release dates are read from the npm registry metadata endpoint.
+sdk_note: >-
+  Deliberately NOT wired as type SDKs. sdk_count is meant to count first-party client
+  libraries for a provider's API; Porsche has no public API for these to wrap. Wiring SDKs
+  here would credit Porsche with an API client surface it does not ship.
+registries_checked:
+  - registry: npm
+    result: 12 first-party packages found across the @porsche-design-system and @porscheofficial scopes
+  - registry: PyPI
+    result: no first-party Porsche package found
+  - registry: Maven Central
+    result: no first-party Porsche package found
+  - registry: NuGet
+    result: no first-party Porsche package found
+  - registry: crates.io
+    result: no first-party Porsche package found
+  - registry: RubyGems
+    result: no first-party Porsche package found
+  - registry: pkg.go.dev
+    result: no first-party Porsche module found
+packages:
+  - name: '@porsche-design-system/components-js'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/components-js
+    language: JavaScript
+    official: true
+    version: 4.6.0
+    published: '2026-08-20'
+    repository: https://github.com/porsche-design-system/porsche-design-system
+    description: Porsche Design System web components (Stencil), vanilla-JS distribution.
+  - name: '@porsche-design-system/components-react'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/components-react
+    language: JavaScript
+    official: true
+    version: 4.6.0
+    published: '2026-08-20'
+    repository: https://github.com/porsche-design-system/porsche-design-system
+    description: React wrapper, including Next.js and React Router integrations.
+  - name: '@porsche-design-system/components-angular'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/components-angular
+    language: TypeScript
+    official: true
+    version: 4.6.0
+    published: '2026-08-20'
+    repository: https://github.com/porsche-design-system/porsche-design-system
+    description: Angular wrapper for the Porsche Design System components.
+  - name: '@porsche-design-system/components-vue'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/components-vue
+    language: JavaScript
+    official: true
+    version: 4.6.0
+    published: '2026-08-20'
+    repository: https://github.com/porsche-design-system/porsche-design-system
+    description: Vue 3 wrapper for the Porsche Design System components.
+  - name: '@porscheofficial/cookie-consent-banner'
+    registry: npm
+    url: https://www.npmjs.com/package/@porscheofficial/cookie-consent-banner
+    language: TypeScript
+    official: true
+    version: 4.1.0
+    published: '2026-02-17'
+    repository: https://github.com/porscheofficial/cookie-consent-banner
+    description: Lightweight, framework-agnostic cookie consent banner web component.
+  - name: '@porscheofficial/cookie-consent-banner-react'
+    registry: npm
+    url: https://www.npmjs.com/package/@porscheofficial/cookie-consent-banner-react
+    language: TypeScript
+    official: true
+    version: 4.1.0
+    published: '2026-02-17'
+    repository: https://github.com/porscheofficial/cookie-consent-banner
+    description: React binding for the cookie consent banner.
+  - name: '@porsche-design-system/assets'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/assets
+    language: JavaScript
+    official: true
+    version: 5.0.2
+    published: '2022-06-22'
+    description: Icons, fonts, marque and crest assets. Last published 2022 — superseded by the CDN distribution.
+    status: stale
+  - name: '@porsche-design-system/visual-regression-tester'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/visual-regression-tester
+    language: TypeScript
+    official: true
+    version: 4.5.0
+    published: '2023-03-23'
+    description: Visual regression testing helper used by the design system's own test suite.
+    status: stale
+  - name: '@porsche-design-system/prettier-config'
+    registry: npm
+    url: https://www.npmjs.com/package/@porsche-design-system/prettier-config
+    language: JavaScript
+    official: true
+    version: 1.0.1
+    published: '2022-05-19'
+    description: Shared Prettier configuration.
+    status: stale
+  - name: '@porscheofficial/eslint-config-porschedigital-base'
+    registry: npm
+    url: https://www.npmjs.com/package/@porscheofficial/eslint-config-porschedigital-base
+    language: JavaScript
+    official: true
+    version: 4.0.0
+    published: '2023-08-07'
+    repository: https://github.com/porscheofficial/eslint-config-porschedigital
+    description: Porsche Digital's opinionated base ESLint configuration.
+    status: stale
+  - name: '@porscheofficial/eslint-config-porschedigital-react'
+    registry: npm
+    url: https://www.npmjs.com/package/@porscheofficial/eslint-config-porschedigital-react
+    language: JavaScript
+    official: true
+    version: 4.0.0
+    published: '2023-08-07'
+    repository: https://github.com/porscheofficial/eslint-config-porschedigital
+    description: React ruleset layered on the base ESLint config.
+    status: stale
+  - name: '@porscheofficial/prettier-config-porschedigital'
+    registry: npm
+    url: https://www.npmjs.com/package/@porscheofficial/prettier-config-porschedigital
+    language: JavaScript
+    official: true
+    version: 4.0.0
+    published: '2023-08-07'
+    repository: https://github.com/porscheofficial/eslint-config-porschedigital
+    description: Porsche Digital's shared Prettier configuration.
+    status: stale
+  - name: porsche-design-system (CDN loader)
+    registry: cdn
+    url: https://cdn.ui.porsche.com/porsche-design-system/components/
+    official: true
+    version: 4.5.0
+    published: null
+    note: >-
+      The design system also ships as a version-pinned CDN bundle. No registry metadata
+      endpoint exists for it, so the version is read from the pinned URL itself:
+      developer.porsche.com loads
+      porsche-design-system.v4.5.0.e9ec1eb3efc438fd4e3d.js while developerhub.porsche.io
+      still loads porsche-design-system.v3.32.1.ee291cc47c0fcff106f7.js — two Porsche
+      properties a full major version apart. The publish date is not exposed by the CDN.
+excluded:
+  - name: '@a11y-agent-team/mcp-server'
+    reason: >-
+      Found inside porsche-design-system/accessibility-agents, but that GitHub repo is a
+      FORK of Community-Access/accessibility-agents (GitHub API: fork=true,
+      parent=Community-Access/accessibility-agents) and the package.json names
+      Community-Access as repository, homepage and bugs owner. It is not a Porsche package
+      and is not counted here.
+  - name: porsche-connect, homebridge-porsche, homebridge-porsche-taycan, iobroker.porsche
+    reason: Third-party community integrations against Porsche Connect; not published by Porsche.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

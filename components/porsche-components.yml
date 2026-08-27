@@ -1,0 +1,78 @@
+generated: '2026-08-27'
+method: searched
+source: https://designsystem.porsche.com/v4/
+provider: Porsche
+providerId: porsche
+description: >-
+  The Porsche Design System (PDS) is Porsche's first-party, publicly consumable
+  client-side component library: Stencil-built web components plus Angular, React and Vue
+  wrappers, design tokens, styles and assets. It is the largest genuinely public
+  developer surface Porsche operates — 648 GitHub stars, MIT-adjacent proprietary license,
+  documented at designsystem.porsche.com and distributed through both npm and a
+  version-pinned CDN. It is a UI component library, not an API SDK.
+docs: https://designsystem.porsche.com/v4/
+repository: https://github.com/porsche-design-system/porsche-design-system
+current_major: v4
+current_version: 4.6.0
+license: NOASSERTION (proprietary, published in LICENSE.md)
+accessibility: WCAG 2.2 AA is an explicit design goal; the repo runs Playwright a11y tests in CI.
+loaders:
+  - name: npm packages
+    families:
+      - '@porsche-design-system/components-js'
+      - '@porsche-design-system/components-react'
+      - '@porsche-design-system/components-angular'
+      - '@porsche-design-system/components-vue'
+    note: See packages/porsche-packages.yml for versions and publish dates.
+  - name: CDN bundle
+    url: https://cdn.ui.porsche.com/porsche-design-system/components/
+    note: >-
+      Version-pinned filenames, e.g.
+      porsche-design-system.v4.5.0.e9ec1eb3efc438fd4e3d.js. Fonts, icons, meta-icons and
+      the font-face stylesheet are served from the same CDN host.
+  - name: Design tokens
+    note: >-
+      Shipped as SCSS, Emotion, Vanilla Extract and Tailwind CSS surfaces; the v4.2.0
+      release added CJK font-family tokens and a cjk-font-family() mixin.
+families:
+  - name: Layout and structure
+    components: [p-canvas, p-divider, p-scroller, p-drilldown, p-drilldown-item, p-drilldown-link]
+  - name: Typography and brand
+    components: [p-heading, p-display, p-text, p-text-list, p-text-list-item, p-crest, p-wordmark, p-model-signature, p-flag]
+  - name: Actions and navigation
+    components: [p-button, p-button-pure, p-button-tile, p-link, p-link-pure, p-link-tile, p-link-tile-product, p-tabs, p-tabs-bar, p-tabs-item, p-pagination, p-segmented-control, p-segmented-control-item, p-stepper-horizontal, p-stepper-horizontal-item]
+  - name: Form controls
+    components: [p-checkbox, p-fieldset, p-input-date, p-input-email, p-input-month, p-input-number, p-input-password, p-input-search, p-input-tel, p-input-text, p-input-time, p-input-url, p-input-week, p-multi-select, p-multi-select-option, p-optgroup, p-pin-code, p-radio-group, p-radio-group-option, p-select, p-select-option, p-switch, p-textarea]
+  - name: Overlays and feedback
+    components: [p-banner, p-flyout, p-inline-notification, p-modal, p-popover, p-sheet, p-spinner, p-toast, p-toast-item]
+  - name: Data display
+    components: [p-accordion, p-carousel, p-table, p-table-body, p-table-cell, p-table-head, p-table-head-cell, p-table-head-row, p-table-row, p-tag, p-tag-dismissible, p-ai-tag]
+component_count: 78
+component_count_note: >-
+  Counted from the custom-element tag names registered by the v4.5.0 CDN bundle
+  (cdn.ui.porsche.com/porsche-design-system/components/porsche-design-system.v4.5.0.e9ec1eb3efc438fd4e3d.js),
+  fetched 2026-08-27, HTTP 200.
+utilities:
+  - name: AG Grid theme
+    note: Shipped from the utilities package; peer dependency widened to AG Grid 36 in v4.5.0.
+  - name: Testing sub-package
+    note: >-
+      v4.6.0 added a Shadow DOM counterpart for every Testing Library query — eight query
+      families in six variants, plus screen, within, deepQuerySelector and
+      deepQuerySelectorAll.
+other_first_party_components:
+  - name: Cookie Consent Banner
+    repository: https://github.com/porscheofficial/cookie-consent-banner
+    packages: ['@porscheofficial/cookie-consent-banner', '@porscheofficial/cookie-consent-banner-react']
+    version: 4.1.0
+    note: A separate, framework-agnostic consent web component from Porsche Digital.
+evidence:
+  - url: https://designsystem.porsche.com/v4/
+    status: 200
+  - url: https://cdn.ui.porsche.com/porsche-design-system/components/porsche-design-system.v4.5.0.e9ec1eb3efc438fd4e3d.js
+    status: 200
+  - url: https://github.com/porsche-design-system/porsche-design-system
+    status: 200
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

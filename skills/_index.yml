@@ -1,0 +1,64 @@
+generated: '2026-08-27'
+method: searched
+source: https://github.com/porsche-design-system/porsche-design-system
+provider: Porsche
+providerId: porsche
+description: >-
+  Agent-facing operating instructions published by Porsche itself. Both files are saved
+  verbatim — nothing here was authored on Porsche's behalf. They are AGENTS.md documents
+  (agents.md specification) shipped in the Porsche Design System monorepo, which is
+  Porsche's only public developer surface; there is no OpenAPI anywhere in the estate, so
+  no API-flow skills were generated.
+skills:
+  - id: porsche-design-system
+    name: Porsche Design System — repository agent context
+    file: skills/porsche-design-system-agents.md
+    method: searched
+    format: AGENTS.md (agents.md specification)
+    source: https://raw.githubusercontent.com/porsche-design-system/porsche-design-system/main/AGENTS.md
+    fetched: '2026-08-27'
+    http_status: 200
+    bytes: 9601
+    covers:
+      - monorepo structure and the strict package build order
+      - essential npm commands for build, dev servers, unit/e2e/VRT/a11y tests, lint and format
+      - tech stack constraints (Stencil 4, Node 24 via Volta, Angular 21, React 19, Vue 3, Next.js 15, Biome, Vitest, Playwright)
+      - guidance-priority rules across nested AGENTS.md, .cursor/rules and .github/instructions
+      - a runbook pointer for the recurring weekly dependency-update agent task
+  - id: porsche-design-system-storefront
+    name: Porsche Design System storefront — package agent context
+    file: skills/porsche-design-system-storefront-agents.md
+    method: searched
+    format: AGENTS.md (agents.md specification)
+    source: https://raw.githubusercontent.com/porsche-design-system/porsche-design-system/main/packages/storefront/AGENTS.md
+    fetched: '2026-08-27'
+    http_status: 200
+    bytes: 15380
+    covers: Next.js documentation site conventions for the design-system storefront.
+also_published_by_porsche:
+  - path: .cursor/skills, .cursor/rules, .cursor/commands
+    repository: porsche-design-system/porsche-design-system
+    note: >-
+      Cursor-format skills, rules and commands ship in the same repo. Not mirrored here —
+      the GitHub contents API rate-limited before they could be enumerated, and an
+      unenumerated directory is not something to guess at.
+  - path: 'packages/*/AGENTS.md'
+    note: >-
+      Nine further package-scoped AGENTS.md files are referenced by the root document
+      (components, component-meta, shared, styles, tokens, utilities, storefront,
+      components-react, components-angular, components-vue).
+not_included:
+  - path: porsche-design-system/accessibility-agents
+    reason: >-
+      OWNERSHIP. That repository carries 79 agents, a codex-skills tree and a .claude
+      specialist set, but it is a FORK of Community-Access/accessibility-agents (GitHub API
+      fork=true, parent=Community-Access/accessibility-agents). Those skills are the
+      Community Access project's work, not Porsche's, and crediting them to Porsche would
+      be a misattribution.
+generated_skills: []
+generated_skills_note: >-
+  None. Packaged flow skills are grounded in real operationIds from an OpenAPI document.
+  Porsche publishes none, so writing any would have meant inventing operations.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

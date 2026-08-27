@@ -1,0 +1,59 @@
+generated: '2026-08-27'
+method: probed
+source: https://identity.porsche.com/.well-known/openid-configuration
+provider: Porsche
+providerId: porsche
+description: >-
+  OAuth 2.0 / OpenID Connect scopes advertised by the Porsche ID identity provider. Read
+  verbatim from the scopes_supported array of the anonymous discovery document at
+  identity.porsche.com. These are the standard OIDC identity scopes only — Porsche
+  publishes no API-resource scope reference, because the APIs behind Porsche ID are
+  partner-gated and their scope catalog is not public.
+authorization_server: https://identity.porsche.com/
+docs: null
+docs_note: >-
+  No public scopes/permissions reference page found. The Porsche ID Developer Portal
+  (developer.porsche.com) exposes only a landing page, terms, privacy policy and FAQ
+  anonymously; the API reference sits behind portal.developer.porsche.com, which requires
+  a Microsoft Entra ID login.
+scope_count: 14
+scopes:
+  - name: openid
+    description: Request an ID token and initiate an OpenID Connect flow.
+    standard: OIDC Core 1.0
+  - name: profile
+    description: Access the end user's default profile claims.
+    standard: OIDC Core 1.0
+  - name: offline_access
+    description: Request a refresh token for long-lived access.
+    standard: OIDC Core 1.0
+  - name: name
+    description: Full name claim.
+  - name: given_name
+    description: Given name claim.
+  - name: family_name
+    description: Family name claim.
+  - name: nickname
+    description: Nickname claim.
+  - name: email
+    description: Email address claim.
+  - name: email_verified
+    description: Whether the email address has been verified.
+  - name: picture
+    description: Profile picture URL claim.
+  - name: created_at
+    description: Account creation timestamp claim.
+  - name: identities
+    description: Linked external identity providers for the account.
+  - name: phone
+    description: Phone number claim.
+  - name: address
+    description: Postal address claim.
+evidence:
+  - url: https://identity.porsche.com/.well-known/openid-configuration
+    status: 200
+  - url: https://developer.porsche.com/faq
+    status: 200
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

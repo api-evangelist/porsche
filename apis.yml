@@ -11,31 +11,51 @@ apis:
       - url: https://developer.porsche.com/
         type: Documentation
     description: >-
-      Welcome to the Porsche API Portal ... Discover, access, and manage
-      Porsches APIs effortlessly with our centralized platformyour gateway to
-      seamless integration.
+      The Porsche ID API Portal is where Porsche AG publishes and manages the APIs that
+      integrate Porsche ID, its customer identity platform. It is not a public API
+      programme: the portal's own FAQ states "We do not offer any public APIs" and limits
+      access to Porsche AG and approved Porsche Partner Companies, on the grounds that the
+      APIs expose sensitive customer data requiring contractual protection. Partner status
+      is applied for through the VW Group Supply Portal, after which Porsche's integration
+      team runs onboarding. The signed-in portal lives at portal.developer.porsche.com
+      behind a Microsoft Entra ID login; APIs unrelated to Porsche ID are handled by a
+      separate, equally restricted Porsche Developer Hub at developerhub.porsche.io. The
+      one part of the estate that is anonymously machine-readable is the Porsche ID OpenID
+      Connect discovery document at identity.porsche.com.
 name: Porsche
 tags:
   - Automobiles
   - Cars
   - Vehicles
+  - Automotive
+  - Connected Car
+  - Identity
+  - OpenID Connect
+  - Design System
+  - Open Source
+  - Germany
 type: Index
 accessModel:
-  pricing: freemium
-  onboarding: unknown
+  pricing: contract
+  onboarding: partner
   trial: false
   try_now: false
   public: false
-  label: Freemium
-  confidence: medium
+  label: Partner Only
+  confidence: high
   source:
+  - https://developer.porsche.com/faq
   - plans
-  generated: '2026-07-22'
-  method: derived
+  generated: '2026-08-27'
+  method: searched
+  note: >-
+    Corrected 2026-08-27. The prior "Freemium" label was derived from a scaffold plans file
+    that invented a free tier. Porsche publishes no plans, no pricing and no self-serve
+    signup; API access is granted by partner contract only.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/porsche.png
 access: 3rd-Party
 created: '2025-02-25'
-modified: '2025-02-25'
+modified: '2026-08-27'
 position: Consumer
 description: >-
   Porsche is a luxury car manufacturer known for producing high-performance sports
@@ -48,6 +68,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: Website
+    url: https://www.porsche.com/
   - type: VulnerabilityDisclosure
     url: security/porsche-vulnerability-disclosure.yml
   - type: DomainSecurity
@@ -64,3 +86,65 @@ common:
     description: 'null'
     url: https://developer.porsche.com/terms
     type: TermsOfService
+  - type: WellKnown
+    name: Well-Known Document Probe
+    url: well-known/porsche-well-known.yml
+  - type: SecurityTxt
+    name: security.txt (www.porsche.com)
+    url: well-known/porsche-security.txt
+  - type: Security
+    name: Vulnerability Disclosure
+    url: security/porsche-vulnerability-disclosure.yml
+  - type: Authentication
+    name: Authentication Profile
+    url: authentication/porsche-authentication.yml
+  - type: OAuthScopes
+    name: OpenID Connect Scopes
+    url: scopes/porsche-scopes.yml
+  - type: Conformance
+    name: Standards Conformance
+    url: conformance/porsche-conformance.yml
+  - type: Packages
+    name: First-Party Packages
+    url: packages/porsche-packages.yml
+  - type: Components
+    name: Porsche Design System Components
+    url: components/porsche-components.yml
+  - type: ChangeLog
+    name: Porsche Design System Changelog
+    url: changelog/porsche-changelog.yml
+  - type: Lifecycle
+    name: Lifecycle and Version Support
+    url: lifecycle/porsche-lifecycle.yml
+  - type: Deprecation
+    name: Version Support and End-of-Life Policy
+    url: lifecycle/porsche-lifecycle.yml
+  - type: Conventions
+    name: API Conventions
+    url: conventions/porsche-conventions.yml
+  - type: AgentSkill
+    name: Provider-Published Agent Context
+    url: skills/_index.yml
+  - type: LLMsTxt
+    name: llms.txt
+    url: llms/porsche-llms.txt
+  - type: Plans
+    name: Plans and Pricing
+    url: plans/porsche-plans-pricing.yml
+  - type: RateLimits
+    name: Rate Limits
+    url: rate-limits/porsche-rate-limits.yml
+  - name: Porsche Design System Documentation
+    url: https://designsystem.porsche.com/v4/
+    type: Documentation
+  - name: Porsche Developer Portal FAQ
+    url: https://developer.porsche.com/faq
+    type: Support
+  - name: Data Privacy Policy | Porsche Developer Portal
+    url: https://developer.porsche.com/privacy-policy
+    type: PrivacyPolicy
+x-enrichment:
+  date: '2026-08-27'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1

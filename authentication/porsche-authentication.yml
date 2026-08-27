@@ -1,0 +1,145 @@
+generated: '2026-08-27'
+method: probed
+source: https://identity.porsche.com/.well-known/openid-configuration
+docs: https://developer.porsche.com/
+provider: Porsche
+providerId: porsche
+description: >-
+  Porsche publishes no public API and no OpenAPI document, so this profile is not derived
+  from a securitySchemes block. It is read directly from the two OpenID Connect discovery
+  documents Porsche serves anonymously: the Porsche ID identity provider at
+  identity.porsche.com and the Porsche CIAM backend-for-frontend fronted by
+  login.porsche.com. These describe how a Porsche Partner Company authenticates once it
+  has been granted access; the APIs themselves stay behind the partner gate.
+summary:
+  primary_scheme: openIdConnect
+  public_registration: false
+  gate: >-
+    Only Porsche AG and approved Porsche Partner Companies may obtain credentials. The
+    Porsche ID Developer Portal FAQ states plainly "We do not offer any public APIs".
+schemes:
+  - id: porsche_id_oidc
+    type: openIdConnect
+    name: Porsche ID (OpenID Connect)
+    issuer: https://identity.porsche.com/
+    discovery: https://identity.porsche.com/.well-known/openid-configuration
+    jwks_uri: https://identity.porsche.com/.well-known/jwks.json
+    endpoints:
+      authorization: https://identity.porsche.com/authorize
+      token: https://identity.porsche.com/oauth/token
+      userinfo: https://identity.porsche.com/userinfo
+      device_authorization: https://identity.porsche.com/oauth/device/code
+      backchannel_authentication: https://identity.porsche.com/bc-authorize
+      mfa_challenge: https://identity.porsche.com/mfa/challenge
+      revocation: https://identity.porsche.com/oauth/revoke
+      registration: https://identity.porsche.com/oidc/register
+      global_token_revocation: https://identity.porsche.com/oauth/global-token-revocation/connection/{connectionName}
+    grant_types:
+      - authorization_code
+      - client_credentials
+      - refresh_token
+      - implicit
+      - password
+      - urn:ietf:params:oauth:grant-type:device_code
+      - urn:ietf:params:oauth:grant-type:token-exchange
+      - urn:ietf:params:oauth:grant-type:jwt-bearer
+      - http://auth0.com/oauth/grant-type/password-realm
+      - http://auth0.com/oauth/grant-type/passwordless/otp
+      - http://auth0.com/oauth/grant-type/mfa-oob
+      - http://auth0.com/oauth/grant-type/mfa-otp
+      - http://auth0.com/oauth/grant-type/mfa-recovery-code
+    response_types:
+      - code
+      - token
+      - id_token
+      - code token
+      - code id_token
+      - token id_token
+      - code token id_token
+    response_modes: [query, fragment, form_post]
+    pkce:
+      supported: true
+      code_challenge_methods: [S256, plain]
+    sender_constraining:
+      dpop: true
+      dpop_signing_alg_values: [ES256]
+      mutual_tls: false
+    client_authentication:
+      - client_secret_basic
+      - client_secret_post
+      - private_key_jwt
+      - none
+    client_auth_signing_algs: [RS256, RS384, PS256]
+    id_token_signing_algs: [HS256, RS256, PS256]
+    subject_types: [public]
+    dynamic_client_registration: true
+    ciba:
+      supported: true
+      delivery_modes: [poll]
+    logout:
+      backchannel_logout: true
+      backchannel_logout_session: true
+      end_session_endpoint: null
+    grant_profiles:
+      - urn:ietf:params:oauth:grant-profile:id-jag
+    claims:
+      - aud
+      - auth_time
+      - created_at
+      - email
+      - email_verified
+      - exp
+      - family_name
+      - given_name
+      - iat
+      - identities
+      - iss
+      - name
+      - nickname
+      - phone_number
+      - picture
+      - sub
+    note: >-
+      The discovery document's grant list and the /mfa/challenge endpoint identify this as an
+      Auth0-hosted tenant operating under Porsche's own domain and TLS certificate.
+  - id: porsche_ciam_bff
+    type: openIdConnect
+    name: Porsche CIAM backend-for-frontend
+    issuer: https://bff.p-dub.ciamprod.aws.platform.porsche.cloud
+    discovery: https://login.porsche.com/.well-known/openid-configuration
+    jwks_uri: https://bff.p-dub.ciamprod.aws.platform.porsche.cloud/.well-known/jwks.json
+    endpoints:
+      authorization: https://identity.porsche.com/authorize
+      token: https://bff.p-dub.ciamprod.aws.platform.porsche.cloud/api/v2/token
+    response_types: [id_token]
+    id_token_signing_algs: [RS256]
+    subject_types: [public]
+    note: >-
+      A thin second discovery document. Authorization is delegated to identity.porsche.com;
+      only the token exchange runs on the CIAM BFF. The issuer sits on
+      platform.porsche.cloud, a Porsche-operated AWS platform domain — different hostname,
+      same company, confirmed by login.porsche.com serving it under Porsche's certificate.
+portal_gates:
+  - host: portal.developer.porsche.com
+    mechanism: Microsoft Entra ID (Azure AD) OAuth 2.0 authorization code
+    tenant: 56564e0f-83d3-4b52-92e8-a6bb9ea36564
+    evidence: >-
+      GET https://portal.developer.porsche.com 302s to
+      login.microsoftonline.com/<tenant>/oauth2/v2.0/authorize with scope "openid email".
+    status: 200
+  - host: developerhub.porsche.io
+    mechanism: NextAuth sign-in offering "Sign in with Entra ID" and "Sign in with KUMS MFA"
+    evidence: GET /docs redirects to /api/auth/signin?callbackUrl=/docs
+    status: 200
+evidence:
+  - url: https://identity.porsche.com/.well-known/openid-configuration
+    status: 200
+  - url: https://login.porsche.com/.well-known/openid-configuration
+    status: 200
+  - url: https://portal.developer.porsche.com
+    status: 200
+  - url: https://developerhub.porsche.io/docs
+    status: 200
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

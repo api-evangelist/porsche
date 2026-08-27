@@ -1,0 +1,163 @@
+generated: '2026-08-27'
+method: probed
+source: live anonymous HTTPS probes of every Porsche-controlled host reachable from apis.yml
+description: >-
+  Well-known document probe across the Porsche developer, identity and marketing hosts.
+  Two surfaces answer with real documents: the Porsche ID identity provider
+  (identity.porsche.com) serves a full OpenID Connect discovery document, and both the
+  corporate site and the identity host serve an RFC 9116 security.txt. Every /.well-known
+  path on the developer portal, the Developer Hub and the design-system storefront 404s.
+note: >-
+  developer.porsche.com is a Next.js static export whose 404 handler returns a 200-shaped
+  HTML shell body under a 404 status; developerhub.porsche.io returns the Next.js
+  __next_error__ shell. Neither is a document. Only the four 200s below carry real content.
+hosts:
+  - host: identity.porsche.com
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: application/json
+        file: well-known/porsche-identity-openid-configuration.json
+        note: >-
+          OpenID Connect discovery for Porsche ID. Issuer https://identity.porsche.com/.
+          Auth0-backed. Advertises authorization_code, client_credentials, refresh_token,
+          device_code, token-exchange and jwt-bearer grants, PKCE S256, DPoP (ES256),
+          CIBA backchannel authentication, dynamic client registration and backchannel logout.
+      - path: /.well-known/security.txt
+        status: 200
+        content_type: text/plain
+        file: well-known/porsche-identity-security.txt
+        note: >-
+          RFC 9116. Contact mailto:vulnerability@porsche.de. Expires field reads
+          2025-12-31, i.e. this copy is EXPIRED as of the probe date; the corporate
+          copy at www.porsche.com is current (expires 2027-03-31).
+      - path: /.well-known/jwks.json
+        status: 200
+        content_type: application/json
+        file: null
+        note: Referenced by the discovery document as jwks_uri; not mirrored into the repo.
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: login.porsche.com
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: application/json
+        file: well-known/porsche-login-openid-configuration.json
+        note: >-
+          A second, much thinner discovery document. Issuer is
+          https://bff.p-dub.ciamprod.aws.platform.porsche.cloud (the Porsche CIAM
+          backend-for-frontend); authorization_endpoint delegates back to
+          identity.porsche.com. id_token response type only.
+  - host: www.porsche.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        content_type: text/plain
+        file: well-known/porsche-security.txt
+        note: >-
+          RFC 9116. Contact mailto:security@porsche.de, policy
+          https://www.porsche.com/international/information-security/, Hiring field,
+          canonical https://porsche.com/.well-known/security.txt, expires 2027-03-31.
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: porsche.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        content_type: text/plain
+        file: well-known/porsche-security.txt
+        note: Same document as www.porsche.com; this is the canonical location named in the file.
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+  - host: developer.porsche.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: developerhub.porsche.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: designsystem.porsche.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: opensource.porsche.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: api.porsche.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+        note: >-
+          api.porsche.com is not an API host. It is a GitHub Pages site serving a single
+          meta-refresh redirect to https://developer.porsche.com (server: GitHub.com,
+          content-length 277).
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

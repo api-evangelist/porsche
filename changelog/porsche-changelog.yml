@@ -1,0 +1,91 @@
+generated: '2026-08-27'
+method: searched
+source: https://designsystem.porsche.com/v4/news/changelog
+provider: Porsche
+providerId: porsche
+description: >-
+  Porsche maintains a dated, per-release changelog for the Porsche Design System — the one
+  Porsche surface with a public release history. The partner-gated API surfaces have their
+  own changelog at developerhub.porsche.io/docs/change-log, but that path redirects to the
+  Entra ID / KUMS MFA sign-in, so its contents could not be read.
+subject: Porsche Design System
+docs: https://designsystem.porsche.com/v4/news/changelog
+releases_feed: https://github.com/porsche-design-system/porsche-design-system/releases
+scheme: semver
+versioning_note: >-
+  Majors get their own documentation tree (designsystem.porsche.com/v3/,
+  /v4/); the bare hostname meta-refreshes to the current major, v4.
+current_version: 4.6.0
+current_version_date: '2026-08-20'
+cadence: >-
+  Seven minor releases in the four months since v4.0.0 (2026-04-29), roughly one every
+  two to four weeks.
+entries:
+  - version: 4.6.0
+    date: '2026-08-20'
+    breaking: false
+    additions:
+      - 'Testing: a Shadow DOM counterpart for every Testing Library query — eight query families (AltText, DisplayValue, LabelText, PlaceholderText, Role, TestId, Text, Title) in six variants each, plus screen, within, deepQuerySelector and deepQuerySelectorAll.'
+      - 'Ai Tag: BCP47 (en-US) and POSIX (en_US) locale formats.'
+      - 'Select, Multi Select: screen-reader announcement of filter results (English only).'
+      - 'Carousel: live region announcing page status after control-driven navigation.'
+      - 'Icon: connect-services, shopping-cart-off and customer-support icons.'
+  - version: 4.5.0
+    date: '2026-07-21'
+    breaking: false
+    changes:
+      - 'AG Grid: peer dependency bumped to AG Grid major version 36.'
+      - 'Popover: shadowed trigger button style aligned with button-pure.'
+    fixes:
+      - 'Flyout, Modal, Sheet: dismiss-button focus ring color and hover visibility.'
+      - 'Popover: trigger icon no longer squished inside a constrained flex/grid parent; host margin now applied to the shadowed trigger button.'
+  - version: 4.4.0
+    date: '2026-07-15'
+    breaking: false
+    additions:
+      - 'Popover: controlled and uncontrolled usage, open prop, compact prop, dismiss event, and --p-popover-* CSS sizing variables.'
+    fixes:
+      - 'Flyout, Modal, Sheet: text selection inside the dialog, and no dismissal when a selection started inside is released on the backdrop.'
+      - 'Popover, Banner: entry animation no longer plays when initially rendered open.'
+  - version: 4.3.0
+    date: '2026-06-24'
+    breaking: false
+    additions:
+      - 'Tabs, Tabs Bar: aria prop for additional screen-reader context.'
+    changes:
+      - 'Angular: peer dependency widened to Angular 21 and 22.'
+  - version: 4.2.0
+    date: '2026-06-22'
+    breaking: false
+    additions:
+      - 'Angular: peer dependency bumped for Angular major version 22.'
+      - 'Flyout: fullscreen prop.'
+      - 'Tailwind CSS / SCSS / Emotion / Vanilla Extract: CJK font-family tokens and :lang() auto-detection for Simplified Chinese, Traditional Chinese, Japanese and Korean.'
+      - 'Accordion: indent prop.'
+  - version: 4.1.0
+    date: '2026-05-06'
+    breaking: false
+    additions:
+      - 'Input Search: aria prop for additional screen-reader context.'
+    fixes:
+      - 'Tabs Bar: page scrolling when below the fold.'
+  - version: 4.0.0
+    date: '2026-04-29'
+    breaking: true
+    highlights:
+      - Major release opening the v4 documentation tree.
+gaps:
+  - >-
+    developerhub.porsche.io/docs/change-log exists as a route but 302s to
+    /api/auth/signin — the API changelog itself is not public.
+evidence:
+  - url: https://designsystem.porsche.com/v4/news/changelog
+    status: 200
+  - url: https://api.github.com/repos/porsche-design-system/porsche-design-system/releases
+    status: 200
+  - url: https://developerhub.porsche.io/docs/change-log
+    status: 200
+    note: 200 after redirect to the NextAuth sign-in page; the changelog content is gated.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

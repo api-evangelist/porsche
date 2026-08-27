@@ -1,0 +1,86 @@
+generated: '2026-08-27'
+method: probed
+source: https://developerhub.porsche.io/
+provider: Porsche
+providerId: porsche
+status: gated
+description: >-
+  Porsche appears to operate an MCP surface inside the Porsche Developer Hub, but it is not
+  anonymously reachable and no tool list could be retrieved. This artifact records exactly
+  what the probe saw and nothing more. It is deliberately NOT wired as type MCPServer in
+  apis.yml, because a pointer would assert an agent surface an agent cannot actually reach.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: probed
+  note: >-
+    mode is `none` in the pipeline's sense — nothing is reachable and nothing was derived.
+    It is NOT a claim that Porsche ships no MCP server; the evidence below says the opposite
+    for authenticated partners. It is a claim that no MCP endpoint or installable package is
+    published anywhere a client could find and call it.
+findings:
+  - kind: route evidence
+    detail: >-
+      The Developer Hub's Next.js route manifest contains /mcp and /dashboard/mcp, alongside
+      /dashboard/streamzilla, /dashboard/apps, /dashboard/products and
+      /dashboard/streaming-calculator. These are dashboard routes for signed-in partners.
+    source: https://developerhub.porsche.io/_next/static/chunks/
+  - kind: proxy evidence
+    detail: >-
+      POST https://developerhub.porsche.io/mcp returns HTTP 404 from an Express backend with
+      body {"message":"Cannot POST /v1/mcp/","error":"Not Found","statusCode":404}. The
+      front end rewrites /mcp onto an internal /v1/mcp/ service. Every sub-path tried
+      (/mcp/, /mcp/list, /mcp/servers, /mcp/tools, /mcp/message, /mcp/sse) returned the same
+      Express 404 for both GET and POST.
+    source: https://developerhub.porsche.io/mcp
+  - kind: operations evidence
+    detail: >-
+      A Splunk dashboard URL named "apimcperformancepublic" on
+      splunk.hydra-splunk.aws.platform.porsche.cloud is referenced in the Hub's client
+      bundle, indicating an internally monitored API/MCP performance surface.
+tools_list_probe:
+  attempted: true
+  method: POST {"jsonrpc":"2.0","id":1,"method":"tools/list"}
+  headers: 'Accept: application/json, text/event-stream'
+  url: https://developerhub.porsche.io/mcp
+  http_status: 404
+  result: >-
+    No tool list obtained. This was NOT an OAuth challenge — the backend simply does not
+    route the anonymous path, so even the tool names are unavailable. No fallback llms.txt
+    tool list exists either (llms.txt 404s on every Porsche host).
+oauth_discovery:
+  - url: https://developerhub.porsche.io/.well-known/oauth-authorization-server
+    status: 404
+  - url: https://developerhub.porsche.io/.well-known/oauth-protected-resource
+    status: 404
+  - url: https://developerhub.porsche.io/.well-known/oauth-protected-resource/mcp
+    status: 404
+derived_candidate:
+  attempted: false
+  reason: >-
+    A candidate tool list is derived from OpenAPI operations. Porsche publishes no OpenAPI,
+    so there is nothing to derive from. No tool names have been invented.
+excluded:
+  - name: '@a11y-agent-team/mcp-server'
+    where: github.com/porsche-design-system/accessibility-agents/mcp-server
+    reason: >-
+      OWNERSHIP. This MCP server (24 accessibility scanning tools, Streamable HTTP with SSE
+      fallback) sits inside a Porsche GitHub org, but the repo is a FORK — GitHub API
+      reports fork=true with parent Community-Access/accessibility-agents — and the
+      package.json names Community-Access as repository, homepage and bugs owner, with the
+      README crediting Taylor Arndt and Jeff Bishop. It belongs to the Community Access
+      project, not to Porsche, and is not counted as a Porsche MCP server.
+evidence:
+  - url: https://developerhub.porsche.io/
+    status: 200
+  - url: https://developerhub.porsche.io/mcp
+    status: 404
+  - url: https://developerhub.porsche.io/docs
+    status: 200
+    note: 200 after redirect to /api/auth/signin (Entra ID / KUMS MFA).
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

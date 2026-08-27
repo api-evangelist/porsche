@@ -1,0 +1,146 @@
+generated: '2026-08-27'
+method: probed
+source: https://identity.porsche.com/.well-known/openid-configuration
+provider: Porsche
+providerId: porsche
+description: >-
+  Cross-cutting standards conformance for Porsche. There is no OpenAPI, GraphQL, AsyncAPI,
+  WSDL or Protobuf contract to read, so every assertion below is anchored either in a
+  machine-readable document Porsche serves (the OIDC discovery document, the security.txt)
+  or is honestly recorded as unknown. Nothing is asserted from marketing prose.
+standards:
+  - id: oauth2
+    name: OAuth 2.0 (RFC 6749)
+    conforms: true
+    evidence: >-
+      identity.porsche.com/.well-known/openid-configuration advertises authorization,
+      token, revocation and device-authorization endpoints and the authorization_code,
+      client_credentials, refresh_token and implicit grants.
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: oidc
+    name: OpenID Connect Core 1.0 + Discovery 1.0
+    conforms: true
+    evidence: >-
+      A conformant /.well-known/openid-configuration document with issuer, jwks_uri,
+      userinfo_endpoint, subject_types_supported and id_token_signing_alg_values_supported.
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc7636-pkce
+    name: PKCE (RFC 7636)
+    conforms: true
+    evidence: 'code_challenge_methods_supported: [S256, plain]'
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc9449-dpop
+    name: OAuth 2.0 Demonstrating Proof of Possession (RFC 9449)
+    conforms: true
+    evidence: 'dpop_signing_alg_values_supported: [ES256]'
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc8628-device-grant
+    name: OAuth 2.0 Device Authorization Grant (RFC 8628)
+    conforms: true
+    evidence: device_authorization_endpoint https://identity.porsche.com/oauth/device/code
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc8693-token-exchange
+    name: OAuth 2.0 Token Exchange (RFC 8693)
+    conforms: true
+    evidence: 'grant_types_supported includes urn:ietf:params:oauth:grant-type:token-exchange'
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc7523-jwt-bearer
+    name: JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants (RFC 7523)
+    conforms: true
+    evidence: 'grant_types_supported includes urn:ietf:params:oauth:grant-type:jwt-bearer; token_endpoint_auth_methods_supported includes private_key_jwt'
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc7591-dynamic-client-registration
+    name: OAuth 2.0 Dynamic Client Registration (RFC 7591)
+    conforms: true
+    evidence: registration_endpoint https://identity.porsche.com/oidc/register
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: openid-ciba
+    name: OpenID Connect Client-Initiated Backchannel Authentication (CIBA)
+    conforms: true
+    evidence: 'backchannel_authentication_endpoint https://identity.porsche.com/bc-authorize; backchannel_token_delivery_modes_supported: [poll]'
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: openid-backchannel-logout
+    name: OpenID Connect Back-Channel Logout 1.0
+    conforms: true
+    evidence: 'backchannel_logout_supported: true; backchannel_logout_session_supported: true'
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc9116-security-txt
+    name: security.txt (RFC 9116)
+    conforms: true
+    evidence: >-
+      https://www.porsche.com/.well-known/security.txt returns 200 with Contact, Expires,
+      Policy, Hiring, Preferred-Languages and Canonical fields. Caveat — the second copy at
+      identity.porsche.com carries an Expires value of 2025-12-31 and is therefore expired.
+    source: https://www.porsche.com/.well-known/security.txt
+  - id: fapi
+    name: FAPI 1.0 / 2.0
+    conforms: false
+    evidence: >-
+      No FAPI profile is advertised. mutual TLS client authentication and PAR
+      (pushed_authorization_request_endpoint) are both absent from the discovery document,
+      and request_parameter_supported is false — all required by FAPI.
+    source: https://identity.porsche.com/.well-known/openid-configuration
+  - id: rfc9457
+    name: Problem Details for HTTP APIs (RFC 9457)
+    conforms: unknown
+    evidence: No public API responses observable; no OpenAPI to read response media types from.
+  - id: rfc9727-api-catalog
+    name: /.well-known/api-catalog (RFC 9727)
+    conforms: false
+    evidence: 404 on every Porsche host probed (porsche.com, developer.porsche.com, developerhub.porsche.io, designsystem.porsche.com, identity.porsche.com).
+  - id: a2a-agent-card
+    name: A2A Agent Card
+    conforms: false
+    evidence: /.well-known/agent-card.json and /.well-known/agent.json 404 (or 403 at the apex) on every host probed.
+  - id: openapi
+    name: OpenAPI
+    conforms: false
+    evidence: >-
+      No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, WSDL or .proto contract is published on
+      any anonymously reachable Porsche host. See x-coverage in apis.yml.
+  - id: wcag
+    name: WCAG 2.2 AA
+    conforms: true
+    scope: Porsche Design System components only, not an API standard
+    evidence: >-
+      The porsche-design-system repository states WCAG 2.2 (AA) compliance as a design goal
+      and runs `npm run test:a11y:components-js` (Playwright) in CI; the sibling examples and
+      commissions repositories both describe their templates as WCAG 2.2 (AA) compliant.
+    source: https://github.com/porsche-design-system/porsche-design-system
+domain_standard:
+  probed: true
+  found: false
+  market: Automotive / connected vehicle
+  candidates_checked:
+    - name: ISO 20078 (Extended Vehicle / ExVe web services)
+      found: false
+    - name: NGTP / OCPP / OpenADR (charging and telematics interchange)
+      found: false
+    - name: COVESA / VSS (Vehicle Signal Specification)
+      found: false
+    - name: AUTOSAR Adaptive service interfaces
+      found: false
+  note: >-
+    Reward-only check. Nothing in any anonymously readable Porsche contract declares an
+    automotive domain standard, because there is no anonymously readable contract at all.
+    This is recorded as "not found", not as a failure, and nothing has been invented to
+    fill the slot. If a partner ever contributes the gated API reference, the ISO 20078
+    Extended Vehicle resource shapes would be the first thing worth checking for.
+compliance_certifications:
+  published: false
+  note: >-
+    No trust center and no named certification program (SOC 2, ISO 27001, PCI DSS, HIPAA,
+    FedRAMP) was found on any Porsche developer surface. trust.porsche.com does not resolve.
+    Deliberately NOT wired as type Compliance.
+evidence:
+  - url: https://identity.porsche.com/.well-known/openid-configuration
+    status: 200
+  - url: https://www.porsche.com/.well-known/security.txt
+    status: 200
+  - url: https://www.porsche.com/.well-known/api-catalog
+    status: 404
+  - url: https://trust.porsche.com/
+    status: 000
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

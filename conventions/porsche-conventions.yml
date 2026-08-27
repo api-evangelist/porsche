@@ -1,0 +1,94 @@
+generated: '2026-08-27'
+method: probed
+source: https://identity.porsche.com/.well-known/openid-configuration
+provider: Porsche
+providerId: porsche
+description: >-
+  Cross-cutting runtime semantics for Porsche. Nearly every field here is honestly unknown,
+  and that is the finding: Porsche publishes no public API, no OpenAPI, and no anonymously
+  readable API reference, so there is no observable convention layer for an agent to learn.
+  The only runtime semantics Porsche does publish are those of its OpenID Connect identity
+  provider.
+auth:
+  style: OpenID Connect / OAuth 2.0 bearer
+  detail: See authentication/porsche-authentication.yml.
+  sender_constraining: DPoP (ES256) advertised by the identity provider.
+  credentials_public: false
+idempotency:
+  supported: unknown
+  header: null
+  scope: null
+  retention: null
+  note: >-
+    No public write surface and no API reference, so idempotency support cannot be
+    established either way. Deliberately NOT wired as type Idempotency — that pointer must
+    only be emitted when idempotency support is actually detected.
+pagination:
+  style: unknown
+  params: []
+  response_fields: []
+  note: No API reference to read.
+field_expansion:
+  supported: unknown
+sparse_fieldsets:
+  supported: unknown
+metadata:
+  supported: unknown
+request_id_tracing:
+  supported: partial
+  detail: >-
+    The Developer Hub's Express backend returns an `x-request-id` header on its error
+    responses (observed on a 404 from developerhub.porsche.io). Whether the partner APIs
+    behind the gate echo a correlation id is not documented publicly.
+  evidence: 'x-request-id: a67c08442c08e11a7c8e567edf96b48b on POST https://developerhub.porsche.io/mcp'
+versioning:
+  style: unknown-for-api
+  detail: >-
+    The Developer Hub proxies an internal service under a /v1/ path prefix, leaked by an
+    Express 404 body ("Cannot POST /v1/mcp/"). That hints at URI-path versioning but is not
+    a published policy. The Porsche Design System uses semver with per-major documentation
+    trees. See lifecycle/porsche-lifecycle.yml.
+error_envelope:
+  format: unknown-for-api
+  observed: >-
+    The Developer Hub's public edge returns a plain JSON envelope
+    {"message": ..., "error": ..., "statusCode": ...} — the Express/NestJS default, not
+    RFC 9457 application/problem+json. This is the gateway's own error shape, not the
+    documented shape of any Porsche API.
+rate_limit_signaling:
+  headers: []
+  status_on_exhaustion: unknown
+  note: See rate-limits/porsche-rate-limits.yml — no published limits.
+dry_run_mode:
+  supported: na
+  note: No public write surface.
+reversibility:
+  grade: na
+  write_surface: none
+  detail: >-
+    Porsche exposes no public write operation of any kind, so there is nothing to reverse
+    and no window to state. This is `na`, not a zero: reversibility, dry_run_mode and
+    idempotency are all inapplicable to a provider with no public write surface, and an
+    honest `na` should leave the denominator rather than score as a failure.
+  reversal_operations: []
+  windows: []
+  caution: >-
+    Nothing about a reversal window has been asserted. Porsche's partner APIs cover
+    vehicle-adjacent and identity operations where an invented window would be actively
+    dangerous; none has been guessed.
+cross_links:
+  authentication: authentication/porsche-authentication.yml
+  scopes: scopes/porsche-scopes.yml
+  lifecycle: lifecycle/porsche-lifecycle.yml
+  rate_limits: rate-limits/porsche-rate-limits.yml
+  conformance: conformance/porsche-conformance.yml
+evidence:
+  - url: https://identity.porsche.com/.well-known/openid-configuration
+    status: 200
+  - url: https://developerhub.porsche.io/mcp
+    status: 404
+  - url: https://developerhub.porsche.io/docs
+    status: 200
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
