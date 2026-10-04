@@ -30,9 +30,8 @@ tags:
   - Automotive
   - Connected Car
   - Identity
-  - OpenID Connect
   - Design Systems
-  - Open-Source
+  - Open Source
   - Germany
 tags_raw:
   - Automobiles
@@ -41,10 +40,10 @@ tags_raw:
   - Automotive
   - Connected Car
   - Identity
-  - OpenID Connect
   - Design System
   - Open Source
   - Germany
+  - Open-Source
 type: Index
 deliveryModel:
   model: saas
@@ -170,3 +169,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 18
   pass: local-v1
+x-tags-removed:
+- OpenID Connect
