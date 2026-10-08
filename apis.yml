@@ -89,6 +89,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: FinOps
+    url: finops/porsche-finops.yml
   - type: Website
     url: https://www.porsche.com/
   - type: VulnerabilityDisclosure
