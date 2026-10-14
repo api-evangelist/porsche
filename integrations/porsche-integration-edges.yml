@@ -20,5 +20,30 @@ edges:
   evidence: https://www.high-mobility.com/car-api/porsche-data-api
   detected_by: sweep-automotive.py
   detected: '2026-10-13'
+- partner_name: Google Ad Tech Providers
+  partner: null
+  partner_match: domain
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://storage.googleapis.com/tcfac/additional-consent-providers.csv
+  contract_reference:
+    register: Google Ad Tech Providers (Additional Consent)
+    spec_file: null
+    role: google-atp
+    registered_name: Porsche AG
+    register_id: '3290'
+    products:
+    - Porsche AG
+    matched_domain: porsche.com
+    api_families: null
+    api_families_basis: null
+    detected_by: sweep-adtech.py
+    detected: '2026-10-14'
+  detected_by: sweep-adtech.py
+  detected: '2026-10-14'
 method: searched
-checked: []
+checked:
+- https://storage.googleapis.com/tcfac/additional-consent-providers.csv
+marketplace_apps: []
