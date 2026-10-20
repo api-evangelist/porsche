@@ -30,7 +30,6 @@ tags:
   - Automotive
   - Connected Vehicles
   - Identity
-  - Design Systems
   - Open Source
   - Germany
 tags_raw:
@@ -40,7 +39,6 @@ tags_raw:
   - Automotive
   - Connected Car
   - Identity
-  - Design System
   - Open Source
   - Germany
   - Open-Source
@@ -173,3 +171,4 @@ x-enrichment:
   pass: local-v1
 x-tags-removed:
 - OpenID Connect
+- Design Systems
