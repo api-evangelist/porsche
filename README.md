@@ -1,4 +1,4 @@
-# Porsche (porsche)
+# Porsche
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,49 +64,120 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Porsche is a luxury car manufacturer known for producing high-performance sports cars, sedans, and SUVs. Founded in 1931 by Ferdinand Porsche, the brand has a long history of engineering excellence and precision craftsmanship. Porsche vehicles are renowned for their sleek design, exceptional handling, and powerful engines, making them a favorite among driving enthusiasts around the world. In addition to their road cars, Porsche also has a successful motorsport division, with a rich heritage of racing victories in events such as the 24 Hours of Le Mans and the Formula One World Championship. Overall, Porsche is committed to creating innovative and exciting vehicles that deliver an unmatched driving experience to their customers.
+Porsche is a luxury car manufacturer known for producing high-performance sports cars, sedans, and SUVs. Founded in 1931 by Ferdinand Porsche, the brand has a long history of engineering excellence and precision craftsmanship. Porsche vehicles are renowned for their sleek design, exceptional handling, and powerful engines, making them a favorite among driving enthusiasts around the world.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/porsche/refs/heads/main/apis.yml)
+**Areas:** Automobiles · Cars · Vehicles · Automotive · Connected Vehicles · Identity · Design Systems · Open Source · Germany
 
-## Scope
+## Porsche on APIs.io
 
-- **Type:** Index 
-- **Position:** Consumer 
-- **Access:** 3rd-Party 
+Everything profiled for Porsche is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/porsche/](https://apis.io/providers/porsche/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (1)
 
- - Vehicles, Cars, Automobiles
+- [Porsche](https://apis.io/apis/porsche/porsche/) — The Porsche ID API Portal is where Porsche AG publishes and manages the APIs that integrate Porsche ID, its customer identity platform. It is not a public…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-25 
-- **Modified:** 2025-02-25 
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Porsche
-Welcome to the Porsche API Portal ... Discover, access, and manage Porsches APIs effortlessly with our centralized platformyour gateway to seamless integration.
+Model Context Protocol servers that expose the API to agents.
 
-**Human URL:** [https://developer.porsche.com/](https://developer.porsche.com/)
+- [porsche-mcp.yml](https://apis.io/servers/porsche/porsche-mcp-yml/)
 
+#### Security (3)
 
-#### Tags:
+Authentication, trust centre, and vulnerability disclosure.
 
- - Automobiles
+- [Porsche Authentication](https://apis.io/security/porsche/porsche-authentication/)
+- [Porsche Domain Security](https://apis.io/security/porsche/porsche-domain-security/)
+- [Porsche Vulnerability Disclosure](https://apis.io/security/porsche/porsche-vulnerability-disclosure/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [Documentation](https://developer.porsche.com/)
+The permissions the API asks for.
 
-## Common Properties
+- [Porsche Scopes](https://apis.io/scopes/porsche/porsche-scopes/)
 
-- [Portal](https://developer.porsche.com/)
-- [TermsOfService](https://developer.porsche.com/terms)
+#### Plans and pricing (1)
 
-## Maintainers
+Published plans, tiers and prices.
 
-**FN:** Kin Lane
+- [Porsche Plans Pricing](https://apis.io/plans/porsche/porsche-plans-pricing/)
 
-**Email:** kin@apievangelist.com
+#### Rate limits (1)
 
+Published request limits.
+
+- [Porsche Rate Limits](https://apis.io/rate-limits/porsche/porsche-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Porsche Finops](https://apis.io/finops/porsche/porsche-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.porsche.com/)
+- [Documentation](https://designsystem.porsche.com/v4/)
+- [Support](https://developer.porsche.com/faq)
+- [Terms of service](https://developer.porsche.com/terms)
+- [Privacy policy](https://developer.porsche.com/privacy-policy)
+- [GitHub](https://github.com/porscheofficial)
+
+## API Evangelist rating
+
+**Kin Score 30.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 21.1 |
+
+**Agent readiness 21.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/porsche/](https://apis.io/providers/porsche/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Porsche: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/porsche/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
